@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puerta Norte — Salud y bienestar al mejor precio</title>
+<meta name="description" content="Puerta Norte: lo más vendido en salud y bienestar, seleccionado al mejor precio de Mercado Libre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bosque:#1f1f1f; --bosque-2:#262626; --salvia:#f3f3f3; --salvia-2:#f5f5f5;
+    --crema:#ededed; --ambar:#262626; --ambar-2:#fff159; --tinta:#333333; --gris:#666666;
+    --borde:#e6e6e6; --radio:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',system-ui,sans-serif;color:var(--tinta);background:var(--crema);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Nunito Sans',system-ui,sans-serif;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+
+  /* Barra superior */
+  .aviso{background:var(--bosque);color:#ffffff;font-size:13px;text-align:center;padding:8px 14px}
+  .aviso b{color:var(--ambar-2)}
+  header{position:sticky;top:0;z-index:20;background:#fff159;box-shadow:0 1px 0 rgba(0,0,0,.1)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-txt{font-family:'Nunito Sans',sans-serif;font-size:22px;font-weight:800;color:#333}
+  .logo-txt span{color:#1f1f1f;background:#1f1f1f;color:#fff159;padding:0 6px;border-radius:6px;margin-left:2px}
+  .hero h1 em{color:#fff159!important}
+  .hero .btn-ambar{background:#fff159;color:#333;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+  .hero .btn-ambar:hover{background:#ffe600}
+  .menu{display:flex;gap:28px;list-style:none;font-weight:600;font-size:15px}
+  .menu a{text-decoration:none;color:#333}
+  .menu a:hover{color:var(--bosque)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;border-radius:999px;transition:transform .15s,box-shadow .15s,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ambar{background:var(--ambar);color:#fff;padding:14px 24px;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+  .btn-ambar:hover{background:#1f1f1f}
+  .btn-linea{background:transparent;color:var(--bosque);padding:13px 22px;border:1.5px solid var(--bosque)}
+  .btn-chico{padding:10px 18px;font-size:14px}
+  @media(max-width:760px){.menu{display:none}}
+
+  /* Hero */
+  .hero{background:radial-gradient(1200px 500px at 85% -10%,#3d3d3d 0%,transparent 60%),var(--bosque);color:#fff;overflow:hidden;position:relative}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:76px;padding-bottom:84px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ambar-2)}
+  .hero h1{font-size:clamp(38px,5.4vw,64px);margin:20px 0 18px}
+  .hero h1 em{font-style:normal;color:var(--ambar)}
+  .hero p.lead{font-size:18px;color:#f3f3f3;max-width:540px;margin-bottom:30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .btn-linea{color:#fff;border-color:rgba(255,255,255,.5)}
+  .sellos{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap;color:#e6e6e6;font-size:14px;font-weight:600}
+  .sellos div{display:flex;align-items:center;gap:8px}
+  .hero-arte{position:relative;aspect-ratio:1/1;max-width:440px;justify-self:end;width:100%}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-arte{display:none}}
+
+  /* Cómo funciona */
+  section{padding:84px 0}
+  .titulo{text-align:center;max-width:680px;margin:0 auto 46px}
+  .titulo .kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ambar)}
+  .titulo h2{font-size:clamp(30px,3.6vw,42px);margin:10px 0 12px;color:#333}
+  .titulo p{color:var(--gris);font-size:17px}
+  .pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .paso{background:#fff;border:1px solid var(--borde);border-radius:var(--radio);padding:30px 26px}
+  .paso .num{width:44px;height:44px;border-radius:12px;background:var(--salvia);color:var(--bosque);display:grid;place-items:center;font-family:'Nunito Sans',sans-serif;font-weight:700;font-size:20px;margin-bottom:18px}
+  .paso h3{font-size:21px;margin-bottom:8px;color:var(--bosque)}
+  .paso p{color:var(--gris);font-size:15.5px}
+  @media(max-width:860px){.pasos{grid-template-columns:1fr}}
+
+  /* Catálogo */
+  #catalogo{background:var(--salvia-2);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+  .herramientas{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:28px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1.5px solid var(--borde);background:#fff;color:var(--gris);padding:9px 16px;border-radius:999px;font:inherit;font-weight:700;font-size:14px;cursor:pointer}
+  .chip.activo{background:var(--bosque);border-color:var(--bosque);color:#fff}
+  .buscador{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--borde);border-radius:999px;padding:0 16px;min-width:260px}
+  .buscador input{border:0;outline:0;font:inherit;padding:11px 0;width:100%;background:transparent}
+  .grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+  .card{background:#fff;border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(16,54,42,.12)}
+  .card-arte{height:150px;display:grid;place-items:center;position:relative}
+  .card-arte svg{width:74px;height:74px}
+  .badge{position:absolute;top:12px;left:12px;background:#ff7733;color:#fff;font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:999px;letter-spacing:.02em}
+  .card-cuerpo{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .card-cat{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ambar)}
+  .card h3{font-family:'Manrope',sans-serif;font-size:17px;font-weight:800;margin:6px 0 6px;color:var(--tinta);line-height:1.3}
+  .card p{font-size:14.5px;color:var(--gris);flex:1}
+  .meta{font-size:12.5px;color:#888;margin-top:10px}
+  .precio{font-size:24px;font-weight:600;color:#333;margin-top:4px}
+  .precio small{display:block;font-size:13px;font-weight:700;color:#00a650}
+  .card .btn{margin-top:14px;justify-content:center;width:100%}
+  .vacio{display:none;text-align:center;color:var(--gris);padding:40px 0}
+
+  /* Por qué */
+  .razones{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .razon{padding:26px 22px;border-radius:var(--radio);background:#fff;border:1px solid var(--borde)}
+  .razon .ico{width:46px;height:46px;border-radius:50%;background:var(--bosque);display:grid;place-items:center;margin-bottom:16px}
+  .razon h3{font-family:'Manrope',sans-serif;font-weight:800;font-size:17px;margin-bottom:6px;color:var(--bosque)}
+  .razon p{font-size:14.5px;color:var(--gris)}
+  @media(max-width:960px){.razones{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.razones{grid-template-columns:1fr}}
+
+  /* Banda */
+  .banda{background:#fff159;padding:54px 0}
+  .banda .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .banda h2{font-size:clamp(26px,3vw,36px);color:#333;max-width:640px}
+  .banda .btn{background:var(--ambar);color:#fff;padding:15px 26px}
+
+  /* FAQ */
+  .faq{max-width:780px;margin:0 auto}
+  details{background:#fff;border:1px solid var(--borde);border-radius:14px;margin-bottom:12px;padding:0 22px}
+  summary{cursor:pointer;list-style:none;font-weight:800;font-size:16.5px;padding:20px 0;display:flex;justify-content:space-between;gap:14px;color:var(--bosque)}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';font-size:22px;color:var(--ambar);line-height:1}
+  details[open] summary::after{content:'–'}
+  details p{color:var(--gris);padding-bottom:20px;font-size:15.5px}
+
+  footer{background:#fff;color:#666;border-top:1px solid var(--borde);padding:56px 0 30px;font-size:14px}
+  .pie{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:34px}
+  footer h4{color:#333;font-size:15px;margin-bottom:12px}
+  footer ul{list-style:none;display:grid;gap:8px}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--ambar)}
+  .legal{border-top:1px solid var(--borde);padding-top:22px;font-size:12.5px;color:#999;line-height:1.6}
+  @media(max-width:760px){.pie{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="aviso">Seleccionamos lo más vendido en salud y te llevamos a la <b>publicación con mejor precio</b> de Mercado Libre</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#inicio" aria-label="Puerta Norte, inicio">
+      <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" rx="11" fill="#1f1f1f"/>
+        <path d="M12 31V17a8 8 0 0 1 16 0v14" fill="none" stroke="#fff159" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M20 9.5l2.4 5.6L20 13.8l-2.4 1.3z" fill="#ffd400"/>
+        <circle cx="24" cy="24.5" r="1.4" fill="#fff159"/>
+      </svg>
+      <span class="logo-txt">Puerta <span>Norte</span></span>
+    </a>
+    <ul class="menu">
+      <li><a href="#como">Cómo funciona</a></li>
+      <li><a href="#catalogo">Productos</a></li>
+      <li><a href="#porque">Por qué elegirnos</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+    </ul>
+    <a class="btn btn-ambar btn-chico" href="#catalogo">Ver ofertas</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+        Salud y bienestar · Argentina
+      </span>
+      <h1>Lo más vendido en salud, <em>al mejor precio</em> de Mercado Libre.</h1>
+      <p class="lead">Comparamos las publicaciones por vos. Elegís el producto, te llevamos directo a la oferta más conveniente y comprás con toda la protección de Mercado Libre.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-ambar" href="#catalogo">Ver productos
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-linea" href="#como">Cómo funciona</a>
+      </div>
+      <div class="sellos">
+        <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd400" stroke-width="2.4"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Compra Protegida de Mercado Libre</div>
+        <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd400" stroke-width="2.4"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Pagás con Mercado Pago</div>
+        <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd400" stroke-width="2.4"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Envíos a todo el país</div>
+      </div>
+    </div>
+    <div class="hero-arte" aria-hidden="true">
+      <svg viewBox="0 0 440 440" width="100%" height="100%">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d3d3d"/><stop offset="1" stop-color="#1f1f1f"/></linearGradient>
+        </defs>
+        <circle cx="220" cy="220" r="200" fill="none" stroke="rgba(246,213,157,.18)" stroke-width="1.5"/>
+        <circle cx="220" cy="220" r="160" fill="none" stroke="rgba(246,213,157,.12)" stroke-width="1.5" stroke-dasharray="4 8"/>
+        <path d="M130 380V210a90 90 0 0 1 180 0v170z" fill="url(#g1)" stroke="#fff159" stroke-width="3"/>
+        <path d="M150 380V214a70 70 0 0 1 140 0v166" fill="none" stroke="rgba(246,213,157,.35)" stroke-width="1.5"/>
+        <path d="M220 70l18 42-18-9-18 9z" fill="#ffd400"/>
+        <text x="220" y="58" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="20" font-weight="700" fill="#fff159">N</text>
+        <!-- corazón con pulso -->
+        <path d="M220 300c-34-22-58-42-58-70a30 30 0 0 1 58-12 30 30 0 0 1 58 12c0 28-24 48-58 70z" fill="#ffd400" opacity=".95"/>
+        <path d="M172 240h22l10-18 14 34 10-22h40" fill="none" stroke="#1f1f1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="282" cy="254" r="6" fill="#fff159"/>
+        <circle cx="96" cy="150" r="5" fill="#ffd400"/><circle cx="352" cy="130" r="4" fill="#fff159"/><circle cx="368" cy="300" r="6" fill="#ffd400" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="titulo">
+      <div class="kicker">Cómo funciona</div>
+      <h2>Comprar bien, sin perder tiempo comparando</h2>
+      <p>Nosotros hacemos la parte aburrida: revisar precios, vendedores y opiniones.</p>
+    </div>
+    <div class="pasos">
+      <div class="paso"><div class="num">1</div><h3>Elegís el producto</h3><p>Mirá el catálogo de lo más vendido en salud y bienestar, ordenado por rubro.</p></div>
+      <div class="paso"><div class="num">2</div><h3>Te llevamos a la mejor oferta</h3><p>Cada botón abre la publicación de Mercado Libre que seleccionamos por precio y reputación del vendedor.</p></div>
+      <div class="paso"><div class="num">3</div><h3>Comprás con garantía</h3><p>Pagás y recibís en Mercado Libre, con Compra Protegida y la atención de la plataforma.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="titulo">
+      <div class="kicker">Catálogo</div>
+      <h2>Lo que más se vende en salud</h2>
+      <p>Productos de alta rotación, elegidos por demanda real en Mercado Libre Argentina.</p>
+    </div>
+    <div class="herramientas">
+      <div class="chips" id="chips"></div>
+      <label class="buscador">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5b6b64" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="buscar" type="search" placeholder="Buscar un producto…" aria-label="Buscar un producto">
+      </label>
+    </div>
+    <div class="grilla" id="grilla"></div>
+    <p style="text-align:center;color:#888;font-size:13px;margin-top:22px" id="nota-precios"></p>
+    <p class="vacio" id="vacio">No encontramos ese producto. Probá con otra palabra.</p>
+  </div>
+</section>
+
+<section id="porque">
+  <div class="wrap">
+    <div class="titulo">
+      <div class="kicker">Por qué Puerta Norte</div>
+      <h2>Precio primero, siempre</h2>
+      <p>Una sola regla: si hay una opción más barata y confiable, es la que te mostramos.</p>
+    </div>
+    <div class="razones">
+      <div class="razon"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff159" stroke-width="2.4"><path d="M3 12h4l3 7 4-14 3 7h4"/></svg></div><h3>Precio igual o menor</h3><p>Buscamos la publicación más barata del producto entre vendedores con buena reputación.</p></div>
+      <div class="razon"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff159" stroke-width="2.4"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Alta rotación</h3><p>Solo productos que la gente compra todos los días. Nada de rarezas sin opiniones.</p></div>
+      <div class="razon"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff159" stroke-width="2.4"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Compra segura</h3><p>El pago, el envío y los reclamos pasan por Mercado Libre. Vos comprás tranquilo.</p></div>
+      <div class="razon"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff159" stroke-width="2.4"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div><h3>Precios revisados</h3><p>Actualizamos las selecciones seguido, porque en Argentina los precios se mueven rápido.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="banda">
+  <div class="wrap">
+    <h2>¿Buscás algo de salud que no está en el catálogo? Escribinos y te conseguimos el mejor precio.</h2>
+    <a class="btn" href="#catalogo">Ver productos</a>
+  </div>
+</div>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="titulo">
+      <div class="kicker">Preguntas frecuentes</div>
+      <h2>Lo que más nos preguntan</h2>
+    </div>
+    <div class="faq">
+      <details><summary>¿Le compro a Puerta Norte o a Mercado Libre?</summary><p>La compra se hace en Mercado Libre, al vendedor de la publicación. Puerta Norte selecciona y recomienda la oferta; el pago, el envío y la garantía los gestiona Mercado Libre.</p></details>
+      <details><summary>¿Me sale más caro entrar desde acá?</summary><p>No. Pagás exactamente el precio publicado en Mercado Libre. Si en algún caso recibimos una comisión por la recomendación, la paga la plataforma, no vos.</p></details>
+      <details><summary>¿Cómo eligen el "mejor precio"?</summary><p>Comparamos las publicaciones del mismo producto y nos quedamos con la más barata entre vendedores con buena reputación y opiniones. Como los precios cambian, el precio final es siempre el que ves en Mercado Libre al comprar.</p></details>
+      <details><summary>¿Qué pasa si el producto llega mal?</summary><p>Hacés el reclamo desde tu compra en Mercado Libre. La Compra Protegida cubre productos que no llegan, llegan dañados o son distintos a lo publicado.</p></details>
+      <details><summary>¿Los equipos médicos reemplazan la consulta?</summary><p>No. Tensiómetros, oxímetros y termómetros sirven para controlarte en casa, pero no reemplazan la indicación de tu médico. Elegí productos con registro ANMAT cuando corresponda.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="pie">
+      <div>
+        <div class="logo-txt" style="color:#333;margin-bottom:10px">Puerta <span>Norte</span></div>
+        <p style="max-width:360px">Lo más vendido en salud y bienestar, seleccionado al mejor precio de Mercado Libre.</p>
+      </div>
+      <div>
+        <h4>Rubros</h4>
+        <ul id="pie-rubros"></ul>
+      </div>
+      <div>
+        <h4>La tienda</h4>
+        <ul>
+          <li><a href="#como">Cómo funciona</a></li>
+          <li><a href="#porque">Por qué elegirnos</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      Puerta Norte es una tienda de recomendación: las compras se realizan en Mercado Libre y las gestiona cada vendedor y la plataforma. Algunos enlaces pueden ser de afiliado. Precios y stock sujetos a cambios; el precio válido es el de la publicación al momento de comprar. Los productos de salud no reemplazan la consulta médica. Mercado Libre y Mercado Pago son marcas de sus respectivos titulares.<br>© 2026 Puerta Norte · Santiago del Estero, Argentina
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   CATÁLOGO — editar acá.
+   link:   publicación de Mercado Libre (reemplazar por el link
+           de afiliado cuando esté aprobado).
+   precio: mejor precio encontrado (vendedor con 4,6+ estrellas
+           y +1000 ventas). ref: precio medio de los más vendidos.
+   ========================================================= */
+const ML = q => 'https://listado.mercadolibre.com.ar/' + q;
+
+const RUBROS = {
+  control:    {nombre:'Control en casa',   color:'#f3f3f3'},
+  suplementos:{nombre:'Suplementos',       color:'#fff8c4'},
+  alivio:     {nombre:'Alivio y masajes',  color:'#f5f5f0'},
+  ambiente:   {nombre:'Ambiente y respiración', color:'#fffbe0'},
+  cuidado:    {nombre:'Cuidado diario',    color:'#f0f0f0'}
+};
+
+const PRODUCTOS = [
+  {rubro:'control', nombre:'Tensiómetro digital de brazo', desc:'Automático, presión y pulso. El más vendido del rubro.', badge:'Más vendido', icono:'tension', link:'https://www.mercadolibre.com.ar/p/MLA19441502', precio:21999, ref:59744, modelo:'Femmto', estrellas:4.7, vendidos:'+100mil'},
+  {rubro:'control', nombre:'Oxímetro de pulso', desc:'Saturación y frecuencia cardíaca en segundos, en la punta del dedo.', icono:'oximetro', link:'https://www.mercadolibre.com.ar/p/MLA44772061', precio:20385, ref:35490, modelo:'Euromix YK-80B', estrellas:4.7, vendidos:'+1000'},
+  {rubro:'control', nombre:'Termómetro infrarrojo sin contacto', desc:'Lectura de fiebre en la frente, práctico para chicos.', badge:'En alza', icono:'termo', link:'https://www.mercadolibre.com.ar/up/MLAU4154188010', precio:22125, ref:37299, modelo:'Tipo pistola', estrellas:4.7, vendidos:'+1000'},
+  {rubro:'control', nombre:'Balanza de baño digital', desc:'Hasta 180 kg, pantalla grande y lectura precisa.', icono:'balanza', link:'https://www.mercadolibre.com.ar/p/MLA20995208', precio:8549, ref:24990, modelo:'Troter', estrellas:4.6, vendidos:'+10mil'},
+  {rubro:'suplementos', nombre:'Creatina monohidrato', desc:'El suplemento deportivo más vendido del país. Fuerza y recuperación.', badge:'Más vendido', icono:'pote', link:'https://www.mercadolibre.com.ar/p/MLA24826640', precio:18187, ref:38444, modelo:'Star Nutrition', estrellas:4.8, vendidos:'+10mil'},
+  {rubro:'suplementos', nombre:'Proteína whey', desc:'Proteína de suero para entrenamiento y recuperación muscular.', icono:'pote', link:'https://www.mercadolibre.com.ar/p/MLA37343556', precio:19475, ref:58395, modelo:'Harecore · chocolate', estrellas:4.6, vendidos:'+5mil'},
+  {rubro:'suplementos', nombre:'Colágeno hidrolizado', desc:'Para piel, cabello, uñas y articulaciones. Pote de 300 g.', icono:'capsula', link:'https://www.mercadolibre.com.ar/p/MLA26851493', precio:16559, ref:33000, modelo:'Swork Nutrition', estrellas:4.8, vendidos:'+10mil'},
+  {rubro:'suplementos', nombre:'Citrato de magnesio en polvo', desc:'De los más buscados para descanso y función muscular.', icono:'capsula', link:'https://www.mercadolibre.com.ar/p/MLA18613669', precio:6366, ref:20400, modelo:'Natural Whey', estrellas:4.8, vendidos:'+10mil'},
+  {rubro:'alivio', nombre:'Pistola masajeadora muscular', desc:'Percusión para descontracturar espalda, piernas y cuello.', badge:'En alza', icono:'masaje', link:'https://www.mercadolibre.com.ar/p/MLA58091369', precio:24999, ref:49999, modelo:'Femmto', estrellas:4.8, vendidos:'+10mil'},
+  {rubro:'alivio', nombre:'Electroestimulador TENS', desc:'Alivio del dolor por electroestimulación, con varios programas.', icono:'tens', link:'https://www.mercadolibre.com.ar/p/MLA22626392', precio:66913, ref:95999, modelo:'Gadnic', estrellas:4.7, vendidos:'+5mil'},
+  {rubro:'alivio', nombre:'Plantillas de soporte 4D', desc:'Amortiguación y soporte de arco para el uso diario.', icono:'plantilla', link:'https://www.mercadolibre.com.ar/up/MLAU4034421891', precio:8499, ref:16099, modelo:'Deportivas 4D', estrellas:4.6, vendidos:'+1000'},
+  {rubro:'alivio', nombre:'Sal de Epsom 1 kg', desc:'Sulfato de magnesio para baños de inmersión y relajación muscular.', icono:'sal', link:'https://www.mercadolibre.com.ar/p/MLA54435900', precio:5000, ref:9265, modelo:'Sulfato de magnesio', estrellas:4.7, vendidos:'+1000'},
+  {rubro:'ambiente', nombre:'Humidificador difusor ultrasónico', desc:'Humedad y aroma en el ambiente para dormir y respirar mejor.', badge:'Más buscado', icono:'humi', link:'https://www.mercadolibre.com.ar/p/MLA28531688', precio:30008, ref:41649, modelo:'Gadnic', estrellas:4.8, vendidos:'+10mil'},
+  {rubro:'ambiente', nombre:'Nebulizador a pistón', desc:'Para tratamientos respiratorios en casa, para chicos y adultos.', icono:'nebu', link:'https://www.mercadolibre.com.ar/p/MLA63506983', precio:22999, ref:73828, modelo:'Gadnic compacto', estrellas:4.7, vendidos:'+1000'},
+  {rubro:'cuidado', nombre:'Botiquín de primeros auxilios', desc:'15 elementos esenciales para la casa, el auto o el trabajo.', icono:'botiquin', link:'https://www.mercadolibre.com.ar/p/MLA22855699', precio:10000, ref:31112, modelo:'15 elementos', estrellas:4.8, vendidos:'+1000'},
+  {rubro:'cuidado', nombre:'Pastillero semanal', desc:'Organizá la medicación de la semana: 4 tomas por día.', icono:'pastillero', link:'https://www.mercadolibre.com.ar/p/MLA26305821', precio:8500, ref:9865, modelo:'4 tomas diarias', estrellas:4.7, vendidos:'+5mil'}
+];
+const RELEVADO = '16/11/2026';
+
+/* Íconos SVG por producto */
+const C = '#1f1f1f', A = '#ffd400';
+const ICONOS = {
+  tension:`<svg viewBox="0 0 80 80"><rect x="14" y="18" width="38" height="44" rx="8" fill="#fff" stroke="${C}" stroke-width="3"/><rect x="21" y="25" width="24" height="14" rx="3" fill="${C}"/><path d="M24 33h4l2-4 3 7 2-3h5" stroke="${A}" stroke-width="2" fill="none"/><circle cx="33" cy="51" r="4" fill="${A}"/><path d="M52 40c10 0 14 6 14 14" stroke="${C}" stroke-width="3" fill="none"/><rect x="58" y="54" width="16" height="12" rx="4" fill="${A}"/></svg>`,
+  oximetro:`<svg viewBox="0 0 80 80"><rect x="16" y="24" width="48" height="32" rx="14" fill="#fff" stroke="${C}" stroke-width="3"/><rect x="26" y="32" width="22" height="16" rx="3" fill="${C}"/><text x="37" y="44" text-anchor="middle" font-size="10" font-weight="800" fill="${A}" font-family="Manrope">98</text><circle cx="55" cy="40" r="3" fill="${A}"/></svg>`,
+  termo:`<svg viewBox="0 0 80 80"><path d="M22 22h30a8 8 0 0 1 8 8v4a8 8 0 0 1-8 8H40l-4 22h-10l2-22h-6z" fill="#fff" stroke="${C}" stroke-width="3" stroke-linejoin="round"/><rect x="30" y="27" width="20" height="10" rx="2" fill="${C}"/><path d="M64 28c4 4 4 10 0 14M70 24c6 6 6 16 0 22" stroke="${A}" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+  balanza:`<svg viewBox="0 0 80 80"><rect x="14" y="16" width="52" height="52" rx="12" fill="#fff" stroke="${C}" stroke-width="3"/><rect x="28" y="24" width="24" height="10" rx="2" fill="${C}"/><ellipse cx="30" cy="52" rx="6" ry="8" fill="${A}"/><ellipse cx="50" cy="52" rx="6" ry="8" fill="${A}"/></svg>`,
+  pote:`<svg viewBox="0 0 80 80"><rect x="22" y="14" width="36" height="10" rx="3" fill="${C}"/><path d="M20 26h40v34a8 8 0 0 1-8 8H28a8 8 0 0 1-8-8z" fill="#fff" stroke="${C}" stroke-width="3"/><rect x="20" y="36" width="40" height="18" fill="${A}"/><path d="M34 41l6 8 6-8" stroke="${C}" stroke-width="2.5" fill="none"/></svg>`,
+  capsula:`<svg viewBox="0 0 80 80"><g transform="rotate(-35 40 40)"><rect x="16" y="30" width="48" height="20" rx="10" fill="#fff" stroke="${C}" stroke-width="3"/><path d="M40 30h14a10 10 0 0 1 0 20H40z" fill="${A}"/></g><circle cx="62" cy="60" r="7" fill="${C}"/><circle cx="18" cy="20" r="5" fill="${A}"/></svg>`,
+  masaje:`<svg viewBox="0 0 80 80"><rect x="14" y="20" width="40" height="22" rx="11" fill="#fff" stroke="${C}" stroke-width="3"/><circle cx="60" cy="31" r="9" fill="${A}"/><path d="M28 42v22a5 5 0 0 0 10 0V42" fill="${C}"/><path d="M72 22l4-3M73 31h5M72 40l4 3" stroke="${A}" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+  tens:`<svg viewBox="0 0 80 80"><rect x="26" y="16" width="28" height="36" rx="6" fill="#fff" stroke="${C}" stroke-width="3"/><rect x="31" y="22" width="18" height="10" rx="2" fill="${C}"/><path d="M34 52c0 10-14 6-16 14M46 52c0 10 14 6 16 14" stroke="${C}" stroke-width="2.5" fill="none"/><rect x="10" y="62" width="14" height="10" rx="3" fill="${A}"/><rect x="56" y="62" width="14" height="10" rx="3" fill="${A}"/></svg>`,
+  plantilla:`<svg viewBox="0 0 80 80"><path d="M34 10c12 0 18 12 18 26s-2 34-14 34-12-14-14-26 0-34 10-34z" fill="#fff" stroke="${C}" stroke-width="3"/><path d="M30 44c4-6 14-6 18 0" stroke="${A}" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="38" cy="22" r="4" fill="${A}"/></svg>`,
+  sal:`<svg viewBox="0 0 80 80"><path d="M18 30h44l-4 34a6 6 0 0 1-6 5H28a6 6 0 0 1-6-5z" fill="#fff" stroke="${C}" stroke-width="3"/><path d="M20 40h40" stroke="${A}" stroke-width="10"/><path d="M30 22l4-8M42 20v-9M52 22l-3-8" stroke="${C}" stroke-width="3" stroke-linecap="round"/></svg>`,
+  humi:`<svg viewBox="0 0 80 80"><path d="M26 38h28l-3 28H29z" fill="#fff" stroke="${C}" stroke-width="3" stroke-linejoin="round"/><path d="M40 52a6 6 0 0 0 6-6c0-4-6-10-6-10s-6 6-6 10a6 6 0 0 0 6 6z" fill="${A}"/><path d="M34 30c-4-4 4-8 0-14M46 30c-4-4 4-8 0-14" stroke="${C}" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+  nebu:`<svg viewBox="0 0 80 80"><rect x="12" y="38" width="40" height="26" rx="8" fill="#fff" stroke="${C}" stroke-width="3"/><circle cx="24" cy="51" r="5" fill="${A}"/><path d="M52 50c12 0 12-20 4-26" stroke="${C}" stroke-width="3" fill="none"/><path d="M50 14h14l-3 12H53z" fill="${A}" stroke="${C}" stroke-width="2.5"/></svg>`,
+  botiquin:`<svg viewBox="0 0 80 80"><rect x="12" y="24" width="56" height="40" rx="8" fill="#fff" stroke="${C}" stroke-width="3"/><path d="M30 24v-6a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6" stroke="${C}" stroke-width="3" fill="none"/><path d="M40 34v20M30 44h20" stroke="${A}" stroke-width="6" stroke-linecap="round"/></svg>`,
+  pastillero:`<svg viewBox="0 0 80 80"><rect x="8" y="26" width="64" height="30" rx="6" fill="#fff" stroke="${C}" stroke-width="3"/><g fill="${A}"><rect x="13" y="31" width="7" height="20" rx="2"/><rect x="29" y="31" width="7" height="20" rx="2"/><rect x="45" y="31" width="7" height="20" rx="2"/><rect x="61" y="31" width="6" height="20" rx="2"/></g><g fill="${C}"><rect x="21" y="31" width="7" height="20" rx="2"/><rect x="37" y="31" width="7" height="20" rx="2"/><rect x="53" y="31" width="7" height="20" rx="2"/></g></svg>`
+};
+
+const fmt = n => '$ ' + n.toLocaleString('es-AR');
+let filtro = 'todos', texto = '';
+
+function pintarChips(){
+  const cont = document.getElementById('chips');
+  const items = [['todos','Todos'], ...Object.entries(RUBROS).map(([k,v])=>[k,v.nombre])];
+  cont.innerHTML = items.map(([k,n])=>`<button class="chip${k===filtro?' activo':''}" data-r="${k}">${n}</button>`).join('');
+  cont.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{filtro=b.dataset.r;pintarChips();pintar();});
+}
+
+function pintar(){
+  const t = texto.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+  const lista = PRODUCTOS.filter(p=>(filtro==='todos'||p.rubro===filtro) &&
+    (p.nombre+' '+p.desc).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().includes(t));
+  document.getElementById('grilla').innerHTML = lista.map(p=>{
+    const r = RUBROS[p.rubro];
+    const ahorro = p.ref ? Math.round((1 - p.precio/p.ref)*100) : 0;
+    const precio = p.precio ? `<div class="meta">${p.modelo} · ★ ${String(p.estrellas).replace('.',',')} · ${p.vendidos} vendidos</div><div class="precio">${fmt(p.precio)}${ahorro>0?`<small>${ahorro}% menos que el precio medio</small>`:''}</div>` : '';
+    return `<article class="card">
+      <div class="card-arte" style="background:${r.color}">${p.badge?`<span class="badge">${p.badge}</span>`:''}${ICONOS[p.icono]}</div>
+      <div class="card-cuerpo">
+        <span class="card-cat">${r.nombre}</span>
+        <h3>${p.nombre}</h3>
+        <p>${p.desc}</p>
+        ${precio}
+        <a class="btn btn-ambar btn-chico" href="${p.link}" target="_blank" rel="noopener sponsored">${p.precio?'Comprar ahora':'Ver en Mercado Libre'}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div></article>`;
+  }).join('');
+  document.getElementById('vacio').style.display = lista.length ? 'none' : 'block';
+}
+
+document.getElementById('buscar').addEventListener('input', e=>{texto=e.target.value;pintar();});
+document.getElementById('pie-rubros').innerHTML = Object.entries(RUBROS)
+  .map(([k,v])=>`<li><a href="#catalogo" data-r="${k}">${v.nombre}</a></li>`).join('');
+document.querySelectorAll('#pie-rubros a').forEach(a=>a.addEventListener('click',()=>{filtro=a.dataset.r;pintarChips();pintar();}));
+document.getElementById('nota-precios').textContent = 'Precios relevados en Mercado Libre el ' + RELEVADO + '. El precio medio es el de las publicaciones más vendidas del mismo producto. El precio final es el que ves en Mercado Libre al comprar.';
+pintarChips(); pintar();
+</script>
+</body>
+</html>
